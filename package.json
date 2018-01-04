@@ -1,0 +1,27 @@
+{
+  "name": "qyb",
+  "version": "0.2.0",
+  "scripts": {
+    "gulp": "gulp",
+    "build": "npm run gulp"
+  },
+  "devDependencies": {
+    "amd-optimize": "^0.6.1",
+    "autoprefixer": "^7.2.4",
+    "gulp": "*",
+    "gulp-base64": "*",
+    "gulp-cache": "*",
+    "gulp-clean": "*",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "*",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "*",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-requirejs": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp.spritesmith": "*"
+  }
+}

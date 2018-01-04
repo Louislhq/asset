@@ -1,0 +1,19 @@
+[class^="icon-"],
+[class*="icon-"]{
+	display: inline-block;
+	background-image: url(../img/sprite.png);
+}
+.icon-account{
+	background-position: 0px 0px;
+	width: 20px;
+	height: 21px;
+}
+.icon-account(@isHover: false){
+	.hover (@a) when (@a = false) {
+		.iconSprite();
+		width: 20px;
+		height: 21px;
+	}
+	.hover(@isHover);	
+	background-position: 0px 0px;
+}
