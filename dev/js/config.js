@@ -1,11 +1,10 @@
 requirejs.config({
     urlArgs: "v=" + (new Date()).getTime(),
-    baseUrl: '/dev/js/lib/',
+    baseUrl: '/dest/js/lib/',
     paths: {
         core: '../core',
         app: '../app',
-        jquery: '../app/jquery',
-        jQuery: 'jquery1.10.2'
+        jQuery:'jquery-2.2.4.min'
     }
 
 });

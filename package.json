@@ -6,22 +6,26 @@
     "build": "npm run gulp"
   },
   "devDependencies": {
-    "amd-optimize": "^0.6.1",
     "autoprefixer": "^7.2.4",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.23.5",
     "gulp": "*",
-    "gulp-base64": "*",
+    "gulp-babel": "^7.0.0",
     "gulp-cache": "*",
     "gulp-clean": "*",
     "gulp-clean-css": "^3.9.0",
-    "gulp-concat": "*",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-less": "*",
     "gulp-minify-css": "^1.2.4",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^7.0.1",
-    "gulp-requirejs": "*",
+    "gulp-requirejs": "^1.1.1",
     "gulp-sourcemaps": "*",
+    "gulp-svg-symbols": "^3.0.0",
+    "gulp-svgmin": "^1.2.4",
     "gulp-uglify": "*",
-    "gulp.spritesmith": "*"
+    "path": "^0.12.7"
   }
 }

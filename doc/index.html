@@ -5,24 +5,27 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="/dest/css/styles.css" media="all" />
-    <script src="/dev/js/lib/require.js"></script>
-    <script src="/dev/js/config"></script>
+    <script src="/dest/js/lib/require.js"></script>
+    <script src="/dest/js/config.js"></script>
 </head>
 
 <body>
-    <div>xxxxxx</div>
-    <button onclick="test()">test</button>
+<div class="aaa">text</div>
+<div class="aaa">Hello</div>
 </body>
 <script>
-    // require(['app/main'], function(cncn) {
+    require(['app/main'], function(cncn) {
+        console.log(cncn);
+        cncn.tab();
+    })
 
-    // })
+    // window.onload = function() {
+    //     require(['jQuery'], function($) {
 
-    window.onload = function() {
-        require(['jQuery'], function($) {
-
-        })
-    }
+    //     })
+       
+    // }
+   
 </script>
 
 </html>

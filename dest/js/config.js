@@ -1,22 +1,12 @@
 requirejs.config({
-    baseUrl: '/asset/dest/js/lib/',
+    urlArgs: "v=" + (new Date()).getTime(),
+    baseUrl: '/dest/js/lib/',
     paths: {
         core: '../core',
         app: '../app',
-        jquery: '../app/jquery'
-    },
-    shims: {
-        'app/jquery.from': ['jquery'],
-        'app/jquery.pagination': ['jquery'],
-        /*'app/jquery.ztree.all-3.5.min' : {
-        	deps: ['jquery'],
-        	exports: '$.fn.zTree'
-        },*/
-        'app/kindeditor/kindeditor.js': {
-            exports: 'KindEditor'
-        }
+        jQuery:'jquery-2.2.4.min'
     }
-    //,urlArgs: "bust=" + (new Date()).getTime()
+
 });
 
 

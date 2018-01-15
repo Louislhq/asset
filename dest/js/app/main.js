@@ -1,13 +1,1 @@
-requirejs.config({
-    urlArgs: 'v=' + new Date().getTime(),
-    baseUrl: '/dev/js/lib/',
-    paths: {
-        core: '../core',
-        app: '../app',
-        jquery: '../app/jquery',
-        jQuery: 'jquery1.10.2'
-    }
-});
-define('config', [], function () {
-    return;
-});
+"use strict";define("core/b",["require"],function(e){window.cncnUI;return{base:{},ui:{}}}),define("core/a",["require"],function(e){return function(){console.log(4)}}),define("app/main",["require","core/b","core/a"],function(e){var r=e("core/b");return r.tab=e("core/a"),r});

@@ -1,0 +1,10 @@
+[class^="svg-"] use,
+[class*="svg-"] use{
+    fill: currentColor;
+}
+<% _.forEach( icons, function( icon ){ %><%= icon.class %> {
+  width: <%= icon.width %>;
+  height: <%= icon.height %>;
+}
+<%= icon.style %>
+<% }); %>
