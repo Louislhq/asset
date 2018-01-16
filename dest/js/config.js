@@ -4,7 +4,8 @@ requirejs.config({
     paths: {
         core: '../core',
         app: '../app',
-        jQuery:'jquery-2.2.4.min'
+        jquery:'jquery-2.2.4.min',
+        laydate: 'laydate/laydate'
     }
 
 });

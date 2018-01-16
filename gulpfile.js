@@ -31,7 +31,6 @@ gulp.task('server',['clean','less','r','copy:js','images','svgsprites'],function
         port: 8090
     });
     gulp.watch('doc/**/*.html').on('change', reload);
-    gulp.watch(path.dev + 'js/**/*.js',['r','copy:js']).on('change',reload);
 });
 
 //less
@@ -54,9 +53,12 @@ gulp.task('less', function() {
         .pipe(reload({stream: true}));
 });
 //js
-gulp.task('r', ['clean','clean:js'],function(){
+gulp.task('r', ['clean:js'],function(){
     gulp
     .src(path.dev + 'js/app/common.js')
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(gulp.dest(path.dest+'js/app'));
     gulp
         .src(path.dev + 'js/config.js')
@@ -87,9 +89,9 @@ gulp.task('r', ['clean','clean:js'],function(){
     .pipe(gulp.dest(path.dest + 'js/app/'));
 
 })
-gulp.task('copy:js', ['clean','clean:js'], function(){
+gulp.task('copy:js', ['clean:js'], function(){
     gulp
-        .src(path.dev + 'js/lib/*')
+        .src(path.dev + 'js/lib/**/*')
         .pipe(plumber(function(error) {
             console.log(error);
             console.log('--------------------------  js Syntax Error! --------------------------');
@@ -106,8 +108,7 @@ gulp.task('images', ['clean:images'], function() {
             interlaced: true,
             multipass: true,
         })))
-        .pipe(gulp.dest(path.dest + 'img/default/'))
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(path.dest + 'img/default/'));
 });
 //svgSprites
 gulp.task('svgsprites', ['clean:svg'], function(){
@@ -122,8 +123,7 @@ gulp.task('svgsprites', ['clean:svg'], function(){
              templates: [`default-svg`, `default-demo`, cssTemplates]
         }))
         .pipe(gulpif('*.css', gulp.dest(path.dev + 'less/core/')))
-        .pipe(gulpif('*.svg', gulp.dest(path.dest + 'img/svg/')))
-        .pipe(reload({stream: true}));
+        .pipe(gulpif('*.svg', gulp.dest(path.dest + 'img/svg/')));
 });
 
 
@@ -171,9 +171,10 @@ gulp.task('default', ['clean','server'], function() {
         .on('change', function(event) {
             console.log('File:' + event.path + 'was:' + event.type + ', running tasks……');
         });
-    // //监听core:js编译
+    // //监听js编译
     gulp.watch(path.dev + 'js/**/*', ['clean:js','r', 'copy:js'])
         .on('change', function(event) {
+            reload({stream: true});
             console.log('File:' + event.path + 'was:' + event.type + ', running tasks……');
         });
 })

@@ -1,6 +1,5 @@
 define(function(require) {
-    var cncnQYB = require('core/b');
-    cncnQYB.tab = require('core/a');
+    var cncnQYB = require('core/cncnQYB');
 
     return cncnQYB;
 });

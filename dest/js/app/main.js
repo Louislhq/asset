@@ -1,1 +1,1 @@
-"use strict";define("core/b",["require"],function(e){window.cncnUI;return{base:{},ui:{}}}),define("core/a",["require"],function(e){return function(){console.log(4)}}),define("app/main",["require","core/b","core/a"],function(e){var r=e("core/b");return r.tab=e("core/a"),r});
+"use strict";define("core/cncnQYB",["require"],function(n){window.cncnUI;return{base:{},ui:{},ci:{}}}),define("app/main",["require","core/cncnQYB"],function(n){return n("core/cncnQYB")});

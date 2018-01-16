@@ -6,11 +6,11 @@
 		   
 			-- js
 			
-				-- lib 库基础脚本
+				-- app 基础脚本
 				
 				-- core 公用开发脚本
 				
-				-- app 应用型脚本
+				-- lib 应用型脚本
 					
 					-- 第三方插件
 					
@@ -18,7 +18,6 @@
 					
 				-- config.js 配置文件
 				
-				-- tpl 脚本模板文件
 				
 				
 			-- less
@@ -30,8 +29,8 @@
 					
 				-- core 组件样式
 					-- ui-*.less 一般组件
-					-- icon.less icon样式，勿删，将会自动合并入sprite.less
-					-- sprite.less gulp生成的sprite样式
+					-- svg-svgcssTemplatesicon.less 生成svg的css模板
+					-- svgcssTemplates.less gulp生成的sprite样式
 				
 				-- app 不可通用样式
 					-- mod.less 模块样式入口
@@ -46,7 +45,7 @@
 				
 				-- default 默认合并图片
 				
-				-- sprite 合并图片，只允许png、jpg格式
+				-- svg 合并图片，只允许s'v'g格式
 				
 		   
 		-- dest 发布目录
@@ -80,12 +79,12 @@ js部分：
 2、“j-”前缀：页面上的js交互标示，如“.j-submit”。
 
 css部分：
-1、“ly-”前缀：通用布局，如“.ly-right”。
+1、“lt-”前缀：通用布局，如“.lt-right”。
 2、“.mod-/#mod-”前缀：通用模块，如“.mod-search，.mod-search-more”
 	1)、一个模块一个less文件
 	2)、继承模块写在对应的模块下面
 	3)、模块与模块在页面上禁止嵌套
-3、“.icon-”前缀：图标样式，如“.icon-edit”、“.icon-error”。
+3、“.svg-”前缀：图标样式，如“.svg-edit”、“.svg-error”。
 4、“.fn-”前缀：常用功能样式，目前就提供“.fn-left”、“.fn-right”、“.fn-clear”、“.fn-hide”四种样式，只在less内调用，页面内禁用。
 5、“.page-”前缀：页面级样式，如“.page-index”。
 6、“.ui-”前缀：

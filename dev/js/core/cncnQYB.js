@@ -3,7 +3,8 @@ define(function(require) {
     var cncnUI = window.cncnUI || {};
     cncnUI = {
         base: {},
-        ui:{}
+        ui:{},
+        ci:{}
     }
     return cncnUI;
   });
