@@ -1,174 +1,40 @@
+// 表示状态颜色
+@col-active-delay: #ffac05;
+@col-active-succeed: #66bf39;
+@col-active-draft: #d4c3a1;
+@col-active-cancel: #ccc;
+@col-active-message: #ff3c26;
+@col-active-warn: #ff8c7f;
+@col-active-defult: #ffbd66;
 
-/* ������ɫ(���ǳ col-��ɫ��) */
 
-/* ��ɫϵ �޶�ֻ����/�ĸ�ɫ�ף�����Ĳ������������� */
-@col-black:#333;
-@col-block2:#666;
-@col-block3:#898989;
-@col-block4:#999;
+//主色
+@col-main: #ff5805;
 
-// ��ɫϵ
+//白色
 @col-white:#fff;
+//黑色
+@col-block: #666;
+@col-block2: #999;
 
-// ��
-/* ��ɫϵ */
-@col-gray:#555;
-@col-gray2:#888;
-@col-gray3:#b5b5b5;
-@col-gray4:#c4c4c4;
-@col-gray5:#ccc;
-@col-gray6:#d8d8d8;
-@col-gray7:#f0f0f0;
-@col-gray8:#f3f3f3;
-@col-gray9:#f8f8f8;
-
-// ����ǣ������ɾ
-/* ��ɫϵ */
-@col-yellow:#ff9100;
-@col-yellow2:#ff9419;
-@col-yellow3:#ffa53a;
-@col-yellow4:#dbb468;
-
-@col-yellow5:#fbab4a;
-
-/* ��ɫϵ */
-// ok
-@col-blue:#0e77cc;
-@col-blue2:#248ce0;
-@col-blue3:#209bfe;
-
-/* ��ɫϵ */
-// ok
-@col-red:#ef0a00;
-@col-red2:#da261e;
-@col-red3:#ff5464;
-
-@col-red4:#e4393c;
-@col-red5:#fa7d6c;
-
-
-// ok
-/* ��ɫϵ */
-@col-green:#9dd46c;
-@col-green2:#24c175;
-@col-green3:#2ecc71;
-
-/* ui��� */
-
-
-/* ������ɫ */
-// ����
-@col-link:#3498db;
-@col-link-hover:@col-blue;
-@col-alert:#fe3f3f;
-@col-strong:#2ecc71;
-
-
-/* �߿���ɫ */
-// ����
-@col-border:#e7e7eb;
-
-/* ��ť��ɫ */
-	
-	/* ��ť��ɫ */
-	// ����
-	@col-btn:#3498db;
-	@col-btn-hover:#2280bf;
-	
-	/* С��ť */
-	// ����
-	@col-btn-small:#3498db;
-	@col-btn-small-hover:#2280bf;
-	@col-btn-small-border:#3498db;
-	@col-btn-small-border-hover:#2280bf;
-	@col-btn-small-font:@col-white;
-	@col-btn-small-font-hover:@col-white;
-	
-	/* ��ɫ��ť */
-	@col-btn-blue:#3498db;
-	@col-btn-blue-hover:#2280bf;
-	@col-btn-blue-border:#3498db;
-	@col-btn-blue-border-hover:#2280bf;
-	@col-btn-blue-font:@col-white;
-	@col-btn-blue-font-hover:@col-white;
-
-	/* ��ɫ��ť */
-	@col-btn-red:#f60;
-	@col-btn-red-hover:#f06204;
-	@col-btn-red-border:#f60;
-	@col-btn-red-border-hover:#f06204;
-	@col-btn-red-font:@col-white;
-	@col-btn-red-font-hover:@col-white;
-	
-	/* ��ɫ��ť */
-	// ����
-	@col-btn-gray:@col-gray7;
-	@col-btn-gray-hover:@col-gray6;
-	@col-btn-gray-border:@col-gray4;
-	@col-btn-gray-border-hover:@col-gray4;
-	@col-btn-gray-font:@col-gray;
-	@col-btn-gray-font-hover:@col-gray;
-		
-	/* ȡ��ť */
-	@col-btn-cancel:#f0f0f0;
-	@col-btn-cancel-hover:#e7e5e5;
-	@col-btn-cancel-border:#d2d2d2;
-	@col-btn-cancel-border-hover:#d2d2d2;
-	@col-btn-cancel-font:#666;
-	@col-btn-cancel-font-hover:#666;
-	
-	/* ���ð�ť */
-	@col-btn-disable:#b5b5b5;
-	@col-btn-disable-hover:#b5b5b5;
-	@col-btn-disable-border:#b5b5b5;
-	@col-btn-disable-border-hover:#b5b5b5;
-	@col-btn-disable-font:@col-white;
-	@col-btn-disable-font-hover:@col-white;
-
-	/* 绿色 */
-	@col-btn-green:#9dd46c;
-	@col-btn-green-hover:#86b65b;
-	@col-btn-green-border:#9dd46c;
-	@col-btn-green-border-hover:#86b65b;
-	@col-btn-green-font:@col-white;
-	@col-btn-green-font-hover:@col-white;
-
-	/* 绿色 */
-	@col-btn-yellow:#ff9100;
-	@col-btn-yellow-hover:#e07f00;
-	@col-btn-yellow-border:#ff9100;
-	@col-btn-yellow-border-hover:#e07f00;
-	@col-btn-yellow-font:@col-white;
-	@col-btn-yellow-font-hover:@col-white;
-
-/* �?��ɫ */
-@col-form-border:@col-gray5;
-@col-form-border-hover:@col-blue;
-@col-form-font:@col-block2;           /*�?�ı�*/
-@col-form-disable:@col-gray9;
-
-/* ��ҳ��ɫ */
-@col-pagination:@col-block3;
-@col-pagination-current:@col-blue2;
-@col-pagination-disable:@col-white;
-
-/* js��� */
-
-/* pop������ */
-@col-pop-title:#f0f0f0;
-
-/* dialog�Ի��� */
-@col-dialog-title:#f0f0f0;
-@col-dialog-icon:@col-blue3;
-
-/* grid��� */
-@col-grid-thead:#f5f5f5;
-@col-grid-row-even:#fbfbfb;
-@col-grid-row-hover:#e1f0fa;
-@col-grid-row-selected:#e1f0fa;
-
-/* ������ѡ�� */
-@col-form-select:@col-gray8;
-
-/* �?��֤ */
-@col-validator:#f40;
+@col-red: #ff3c26;
+//按钮颜色
+@col-btn-bg: #FFFAF0;
+@col-btn-bg-hover: rgba(255,150,61,0.08);
+@col-btn-bg-hover2: rgba(255,122,56,0.08);
+@col-btn-font: #FF5805;
+@col-btn-font-search: #FFAC05;
+@col-btn-font-hover: #FF960D;
+@col-btn-border-light: #B2B1AF;
+@col-btn-border-weight: #FF7A38;
+@col-btn-border-reset: #CCCBCB;
+@col-btn-border-search: #FFDD99;
+@col-btn-border-creat: #FFBB99;
+//表单边框颜色
+@col-form-border: #e0dfdc;
+@col-form-border-hover: #ff960d;
+@col-form-font: #1a1a1a;
+@col-form-placeholder: #bfbfbf;
+@col-form-disable: #f2f1ed;
+@col-form-radio: #cccbc8;
+@col-form-radio-checked: #ff5805;

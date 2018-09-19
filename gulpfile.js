@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     less = require('gulp-less'), //编译less
-    babel = require('gulp-babel'),//es6编译
+    babel = require('gulp-babel'), //es6编译
     rjs = require('gulp-requirejs'),
     uglify = require('gulp-uglify'), //压缩JavaScript文件
     maps = require('gulp-sourcemaps'),
@@ -9,11 +9,11 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'), //监听错误
     imagemin = require('gulp-imagemin'), //图片压缩
     cache = require('gulp-cache'),
-    postcss = require('gulp-postcss'),//css补充
+    postcss = require('gulp-postcss'), //css补充
     autoprefixer = require('autoprefixer'),
-    svgSymbols = require('gulp-svg-symbols'),//生成svg-symbols
-    gulpif = require('gulp-if'),//改变文件夹
-    svgmin = require('gulp-svgmin'),//压缩svg
+    svgSymbols = require('gulp-svg-symbols'), //生成svg-symbols
+    gulpif = require('gulp-if'), //改变文件夹
+    svgmin = require('gulp-svgmin'), //压缩svg
     paths = require('path'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload,
@@ -25,9 +25,9 @@ var gulp = require('gulp'),
 const cssTemplates = paths.join(__dirname, `dev/less/core/svg/svgcssTemplate.css`);
 
 //实时更新
-gulp.task('server',['clean','less','r','copy:js','images','svgsprites'],function(){
+gulp.task('server', ['clean'], function() {
     browserSync.init({
-        proxy: 'asset/doc',
+        proxy: 'test/doc',
         port: 8090
     });
     gulp.watch('doc/**/*.html').on('change', reload);
@@ -43,62 +43,67 @@ gulp.task('less', function() {
             console.log('--------------------------  less Syntax Error! --------------------------');
         }))
         .pipe(less())
-        .pipe(minifycss({ compatibility: 'ie7' }))
+        // .pipe(minifycss({ compatibility: 'ie7' }))
         .pipe(postcss([autoprefixer({
             browsers: [
-                'last 20 versions'
-            ]
+                'last 20 versions',
+                'Firefox >= 0',
+                'ie >= 10'
+            ],
+            cascade: true,
+            remove: false
         })]))
         .pipe(gulp.dest(path.dest + 'css'))
-        .pipe(reload({stream: true}));
+        .pipe(reload({ stream: true }));
 });
 //js
-gulp.task('r', ['clean:js'],function(){
+gulp.task('r', ['clean:js'], function() {
     gulp
-    .src(path.dev + 'js/app/common.js')
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(gulp.dest(path.dest+'js/app'));
+        .src(path.dev + 'js/app/common.js')
+        .pipe(babel({
+            presets: ['es2015'],
+            plugins: ["transform-es2015-modules-umd"]
+        }))
+        .pipe(gulp.dest(path.dest + 'js/app'));
     gulp
         .src(path.dev + 'js/config.js')
         .pipe(plumber(function(error) {
             console.log(error);
             console.log('--------------------------  cjs Syntax Error! --------------------------');
         }))
-        .pipe(gulp.dest(path.dest+'js'));
+        .pipe(gulp.dest(path.dest + 'js'));
     rjs({
-        name: 'app/main',
-        baseUrl: path.dev + 'js/lib/',
-        paths: {
-            core: '../core',
-            app: '../app'
-        },
-        mainConfigFile:path.dev + 'js/config.js',
-        out: 'main.js',
-        optimize: "none"
-    })
-    .pipe(plumber(function(error) {
-        console.log(error);
-        console.log('--------------------------  rjs Syntax Error! --------------------------');
-    }))
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest(path.dest + 'js/app/'));
-
-})
-gulp.task('copy:js', ['clean:js'], function(){
-    gulp
-        .src(path.dev + 'js/lib/**/*')
+            name: 'app/main',
+            baseUrl: path.dev + 'js/lib/',
+            paths: {
+                core: '../core',
+                app: '../app'
+            },
+            mainConfigFile: path.dev + 'js/config.js',
+            out: 'main.js',
+            optimize: "none"
+        })
         .pipe(plumber(function(error) {
             console.log(error);
-            console.log('--------------------------  js Syntax Error! --------------------------');
+            console.log('--------------------------  rjs Syntax Error! --------------------------');
         }))
-        .pipe(gulp.dest(path.dest + 'js/lib/'));
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest(path.dest + 'js/app/'));
+
 })
-//图片
+gulp.task('copy:js', ['clean:js'], function() {
+        gulp
+            .src(path.dev + 'js/lib/**/*')
+            .pipe(plumber(function(error) {
+                console.log(error);
+                console.log('--------------------------  js Syntax Error! --------------------------');
+            }))
+            .pipe(gulp.dest(path.dest + 'js/lib/'));
+    })
+    //图片
 gulp.task('images', ['clean:images'], function() {
     gulp
         .src(path.dev + 'img/default/**/*.{png,jpg,jpeg,gif}')
@@ -111,24 +116,24 @@ gulp.task('images', ['clean:images'], function() {
         .pipe(gulp.dest(path.dest + 'img/default/'));
 });
 //svgSprites
-gulp.task('svgsprites', ['clean:svg'], function(){
+gulp.task('svgsprites', ['clean:svg'], function() {
     gulp
         .src(path.dev + 'img/svg/**.svg')
         .pipe(svgmin())
         .pipe(svgSymbols({
-             id:'svg-%f',
-             class:'.svg-%f',
-             fontSize:16,
-             title: false,
-             templates: [`default-svg`, `default-demo`, cssTemplates]
+            id: 'svg-%f',
+            class: '.svg-%f',
+            fontSize: 16,
+            title: false,
+            templates: [`default-svg`, `default-demo`, cssTemplates]
         }))
         .pipe(gulpif('*.css', gulp.dest(path.dev + 'less/core/')))
         .pipe(gulpif('*.svg', gulp.dest(path.dest + 'img/svg/')));
 });
 
 
-gulp.task('clean',['clean:js','clean:images', 'clean:svg'],function(){
-     gulp.start('less','images','svgsprites','r','copy:js');
+gulp.task('clean', ['clean:js', 'clean:images', 'clean:svg'], function() {
+    gulp.start('less', 'images', 'svgsprites', 'r', 'copy:js');
 });
 //清理图片
 gulp.task('clean:images', function() {
@@ -155,7 +160,7 @@ gulp.task('clean:js', function() {
         .pipe(clean({ force: true }));
 });
 
-gulp.task('default', ['clean','server'], function() {
+gulp.task('default', ['clean', 'server'], function() {
     //监听less
     gulp.watch(path.dev + 'less/**', ['less'])
         .on('change', function(event) {
@@ -167,14 +172,14 @@ gulp.task('default', ['clean','server'], function() {
             console.log('File:' + event.path + 'was:' + event.type + ', running tasks……');
         });
     //监听svgsprite
-    gulp.watch(path.dev + 'img/svg/*.svg', ['clean:svg','svgsprites'])
+    gulp.watch(path.dev + 'img/svg/*.svg', ['clean:svg', 'svgsprites'])
         .on('change', function(event) {
             console.log('File:' + event.path + 'was:' + event.type + ', running tasks……');
         });
     // //监听js编译
-    gulp.watch(path.dev + 'js/**/*', ['clean:js','r', 'copy:js'])
+    gulp.watch(path.dev + 'js/**/*', ['clean:js', 'r', 'copy:js'])
         .on('change', function(event) {
-            reload({stream: true});
+            reload({ stream: true });
             console.log('File:' + event.path + 'was:' + event.type + ', running tasks……');
         });
 })

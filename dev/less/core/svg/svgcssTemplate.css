@@ -1,5 +1,5 @@
 [class^="svg-"] use,
-[class*="svg-"] use{
+[class*="svg-"] use {
     fill: currentColor;
 }
 <% _.forEach( icons, function( icon ){ %><%= icon.class %> {

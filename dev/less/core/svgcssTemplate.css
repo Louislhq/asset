@@ -1,51 +1,34 @@
 [class^="svg-"] use,
-[class*="svg-"] use{
+[class*="svg-"] use {
     fill: currentColor;
 }
-.svg-3 {
-  width: 1.125em;
-  height: 1.125em;
-}
-
-.svg-4 {
-  width: 1.125em;
-  height: 1.125em;
-}
-
-.svg-icon_1 {
-  width: 1.125em;
-  height: 1.125em;
-}
-.cls-1{fill-rule:evenodd}
-
-.svg-icon_11 {
-  width: 12.5em;
-  height: 12.5em;
-}
-
-.svg-icon_2 {
-  width: 1.125em;
-  height: 1.125em;
-}
-.cls-1{fill-rule:evenodd}
-
-.svg-icon_21 {
-  width: 12.5em;
-  height: 12.5em;
-}
-
-.svg-liwu {
-  width: 12.5em;
-  height: 12.5em;
-}
-
-.svg-number_6 {
+.svg-nav-1 {
   width: 1em;
   height: 1em;
 }
 
-.svg-shangchuan {
-  width: 12.5em;
-  height: 12.5em;
+.svg-nav-2 {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-nav-3 {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-nav-4 {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-nav-5 {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-nav-6 {
+  width: 1em;
+  height: 1em;
 }
 

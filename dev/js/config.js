@@ -6,6 +6,10 @@ requirejs.config({
         app: '../app',
         jquery:'jquery-2.2.4.min',
         laydate: 'laydate/laydate'
+    },
+    shim: {
+    	deps: [],
+    	laydate: {exports: 'laydate'}
     }
 
 });

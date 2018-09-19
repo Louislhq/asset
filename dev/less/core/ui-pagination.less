@@ -1,0 +1,52 @@
+.ui-pagination{
+	padding: 16px 0;
+	text-align: right;
+	font-size: 0;
+	a,span{
+		display: inline-block;
+		font-size: 14px;
+		color: #808080;
+		height: 32px;
+		line-height: 32px;
+		min-width: 22px;
+		width: auto;
+		padding: 0 5px;
+		margin: 0 4px;
+		text-align: center;
+	}
+	a{
+		border: 1px solid #cccbc8;
+		border-radius: 1px;
+		background: @col-white;
+		&:hover{
+			border-color: #ff960d;
+			color: #ff960d;
+		}
+		&.cur{
+			border-color: #ff960d;
+			color: #ff960d;
+		}
+	}
+	span{
+		cursor: default;
+		user-select: none;
+	}
+	.ui-input{
+		padding: 9px 10px;
+		width: 28px;
+		border-radius: 1px;
+		text-align: center;
+	}
+	.ui-btn{
+		display: inline-block;
+		font-size: 14px;
+		color: #808080;
+		width: 38px;
+		height: 32px;
+		line-height: 32px;
+		border: 1px solid #cccbc8;
+		border-radius: 1px;
+		background: @col-white;
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,105 @@
+/* 基本 */
+.ui-btn-stauts(@bgCol,@bgHoverCol,@fontCol,@fontSize,@fontHoverCol:'',@borderCol:'',@borderHoverCol:'',@isTransition:''){
+    .fontHoverCol (@fontHoverCol) when (@fontHoverCol = '') {
+        @fontHoverCol:@fontCol;
+    }
+    .borderCol(@borderCol) when (@borderCol = '') {
+        @borderCol:@fontCol;
+    }
+    .borderHoverCol(@borderHoverCol) when (@borderHoverCol = '') {
+        @borderHoverCol:@fontHoverCol;
+    }
+    .isTransition (@isTransition) when (@isTransition = '') {
+        transition: all ease 0.3s;
+    }
+    .isTransition(@isTransition);
+    .fontHoverCol(@fontHoverCol);
+    .borderCol(@borderCol);
+    .borderHoverCol(@borderHoverCol);
+
+    background: @bgCol;
+    color: @fontCol;
+    border: 1px solid @borderCol;
+
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-size: @fontSize;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    &:hover{
+        color: @fontHoverCol;
+        background: @bgHoverCol;
+        border-color: @borderHoverCol;
+        text-decoration: none;
+    }
+}
+/* 轻度按钮 */
+.ui-btn-light{
+    .ui-btn-stauts(@col-white,@col-white,@col-block,18px,@col-btn-font-hover,@col-btn-border-light);
+    width: 220px;
+}
+/* 中度按钮 */
+.ui-btn-mod{
+    .ui-btn-stauts(@col-white,@col-btn-bg-hover,@col-btn-font-hover,18px);
+    width: 220px;
+}
+/* 重度按钮 */
+.ui-btn-weight{
+    .ui-btn-stauts(@col-white,@col-btn-bg-hover2,@col-btn-font,18px,@col-btn-font,@col-btn-border-weight,@col-btn-border-weight);
+    width: 220px;
+}
+/* 重置 */
+.ui-btn-reset{
+    .ui-btn-stauts(@col-white,@col-white,@col-block2,14px,@col-btn-font-hover,@col-btn-border-reset);
+    height: 40px;
+    line-height: 40px;
+    border-width: 2px;
+    border-radius: 40px;
+    width: 116px;
+}
+/* 查询 */
+.ui-btn-search{
+    .ui-btn-stauts(@col-white,@col-btn-bg-hover,@col-btn-font-search,14px,@col-btn-font-hover,@col-btn-border-search);
+    height: 40px;
+    line-height: 40px;
+    border-width: 2px;
+    border-radius: 40px;
+    width: 220px;
+}
+/* 创建合同 */
+.ui-btn-creat{
+    .ui-btn-stauts(@col-btn-bg,@col-btn-bg-hover,@col-btn-font,20px,@col-btn-font,@col-btn-border-creat,@col-btn-font-hover);
+    height: 50px;
+    line-height: 50px;
+    width: 260px;
+}
+/* 弹窗 */
+.ui-btn-mod-pop{
+    .ui-btn-stauts(@col-white,@col-btn-bg-hover,@col-btn-font,14px,@col-btn-font,@col-btn-font-hover,@col-btn-font-hover);
+    height: 40px;
+    line-height: 40px;
+    width: 116px;
+}
+.ui-btn-light-pop{
+    .ui-btn-stauts(@col-white,@col-white,@col-block,14px,@col-btn-font-hover,@col-btn-border-reset);
+    height: 40px;
+    line-height: 40px;
+    width: 116px;
+}
+
+.ui-btn-small{
+    height: 40px;
+    line-height: 40px;
+}
+.ui-btn-min{
+    width: 116px;
+}
+.ui-btn-max{
+    width: 260px;
+}
